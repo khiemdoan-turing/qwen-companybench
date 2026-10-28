@@ -1,0 +1,5 @@
+{
+  "_notice": "The raw, unmasked agent trace for T38 (task_id 142637) that previously lived in this file has been removed from the public site bundle. An independent confidentiality re-scan (2026-10-28) found it still carried 6 distinct Slack-channel-ID-shaped strings from the task's simulated environment that had not been through the masking pass (not reproduced here, to avoid republishing them). This site never loads this file at runtime (index.html has no script tags and does not fetch it), but it sat in the published data/ directory where it would have been reachable by URL once pushed to GitHub Pages. The masked, page-rendering version of this same trial's trace is data/traces/T38.json, which was independently re-scanned on 2026-10-28 and returned zero hits for Slack IDs, emails, or URLs; that file is also what is embedded in index.html's 'The one fully-scored task' section.",
+  "status": "sanitized_2026-10-28",
+  "see_instead": "data/traces/T38.json"
+}

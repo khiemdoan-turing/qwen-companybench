@@ -1,0 +1,334 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><title>Qwen 3.8 Max on Turing CompanyBench</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"><style>
+:root{
+  --bg:#f5f6f4; --panel:#ffffff; --ink:#18232b; --muted:#5b6770; --rule:#d9dedb; --soft:#eceff0;
+  --good:#2f7a54; --mid:#b8962e; --bad:#b4483c; --onaccent:#ffffff;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --c0:#b8621b; --accent:var(--c0); --onaccent:#ffffff;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121719; --panel:#1a2124; --ink:#e4e8e6; --muted:#9aa6ab; --rule:#2c3539; --soft:#222a2e;
+  --good:#5fb383; --mid:#d4b456; --bad:#e07a6d; --onaccent:#121719; --c0:#e08a43; --accent:var(--c0); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121719; --panel:#1a2124; --ink:#e4e8e6; --muted:#9aa6ab; --rule:#2c3539; --soft:#222a2e;
+  --good:#5fb383; --mid:#d4b456; --bad:#e07a6d; --onaccent:#121719; --c0:#e08a43; --accent:var(--c0); color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:650;line-height:1.15;margin:0}
+h1{font-size:clamp(28px,4.4vw,44px);max-width:30ch}
+h2{font-size:clamp(21px,2.8vw,29px);max-width:44ch}
+h3{font-size:18px}
+p{max-width:76ch;margin:0}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:17px;max-width:74ch}
+nav.idx{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule);margin:18px 0 8px;padding:8px 0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px}
+nav.idx a{color:var(--muted);text-decoration:none}
+nav.idx a:hover{color:var(--accent)}
+section{padding-block:30px;border-bottom:1px solid var(--rule);display:grid;gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:16px;display:grid;gap:10px;align-content:start}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi{border-top:3px solid var(--accent);padding-top:8px;display:grid;gap:2px}
+.kpi b{font:600 26px var(--mono)}
+.kpi span{font-size:13px;color:var(--muted)}
+.tbl{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;font-size:13px;min-width:100%}
+th,td{padding:6px 9px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap;vertical-align:top}
+th:first-child,td:first-child{text-align:left}
+th{font-weight:600;color:var(--muted);font-size:12px}
+td.l{text-align:left;white-space:normal;min-width:160px}
+tr.hirow{background:color-mix(in srgb,var(--good) 14%,transparent)}
+.chip{display:inline-block;font:500 10px var(--mono);padding:2px 6px;border-radius:3px;margin:1px;white-space:nowrap}
+.chip-ok{background:color-mix(in srgb,var(--good) 25%,transparent);color:var(--good)}
+.chip-to{background:color-mix(in srgb,var(--mid) 25%,transparent);color:var(--mid)}
+.chip-z{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.chip-infra{background:var(--soft);color:var(--muted)}
+.chip-missing{background:var(--soft);color:var(--muted);opacity:.6}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:12.5px;color:var(--muted);align-items:center}
+.foot{font-size:12.5px;color:var(--muted)}
+ul.tight{margin:0;padding-left:18px;display:grid;gap:4px;max-width:78ch}
+details.tstep{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:8px 12px;margin-bottom:6px}
+details.tstep summary{cursor:pointer;font:600 12.5px var(--mono);color:var(--accent)}
+.tmsg{font-size:13px;margin:8px 0}
+.tobs{font-size:12.5px;color:var(--muted);margin-top:6px}
+.callrow{font-size:12px;margin:4px 0;color:var(--muted)}
+.callrow code{color:var(--ink);background:var(--soft);padding:1px 4px;border-radius:3px}
+.ex{border:2px solid var(--bad);border-radius:10px;padding:14px 16px;display:grid;gap:6px;background:color-mix(in srgb,var(--bad) 7%,var(--panel))}
+.ex .lab{font:600 12px var(--mono);letter-spacing:.08em;color:var(--bad);text-transform:uppercase}
+.sbs2{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.sbs2>div{border:1px solid var(--rule);border-radius:8px;padding:10px 12px;display:grid;gap:3px}
+.sbs2 b{font:600 20px var(--mono)}
+code.quote{display:block;background:var(--soft);border:1px solid var(--rule);border-radius:6px;padding:8px 10px;font:12.5px var(--mono);white-space:pre-wrap;color:var(--ink)}
+</style></head><body>
+<div class="wrap">
+<header style="display:grid;gap:14px">
+  <div class="eyebrow">Turing CompanyBench &middot; live run, in progress &middot; generated 2026-10-28, 18:24 UTC pull</div>
+  <h1>Qwen 3.8 Max on Turing CompanyBench</h1>
+  <p class="lede">A Harbor agent-setup bug is blocking most of this run from completing. Of 40 tasks,
+  only <b>1 has all 3 trials scored</b> (no infra failures). This page reports exactly what is scored
+  so far, names the infra cause with its own log line, and will not be read as a finished benchmark
+  pass until more of it completes.</p>
+  <div class="kpis">
+    <div class="kpi"><b>1 of 40</b><span>tasks with all 3 trials real-scored (no infra failure)</span></div>
+    <div class="kpi"><b>15 of 40</b><span>tasks with at least 1 real-scored trial (any n)</span></div>
+    <div class="kpi"><b>18 of 120</b><span>total trials real-scored (ok or timeout, not infra)</span></div>
+    <div class="kpi"><b>161</b><span>logged attempts so far (both CSVs, includes reruns)</span></div>
+  </div>
+</header>
+<nav class="idx" aria-label="Sections">
+  <a href="#headline">Headline</a><a href="#deepdive">The one fully-scored task</a>
+  <a href="#compare">15-task comparison</a><a href="#matrix">Every task</a>
+  <a href="#infra">Infra cause</a><a href="#method">Method</a>
+</nav>
+
+<section id="headline">
+  <div class="eyebrow">Headline</div>
+  <h2>This is a live, in-progress run. Read it as a snapshot, not a finished pass.</h2>
+  <p>Of the 40 CompanyBench tasks in Data OS dataset 1732 (the same set Gemini 4 Argon and Grok 4.7
+  were run on), <b>1 task (T38, task_id 142637)</b> currently has all 3 trials scored with no infra
+  failure. A further <b>14 tasks have at least 1 of 3 trials scored</b> (13 at exactly 1 of 3, 1 at
+  2 of 3, plus T38 at 3 of 3). The remaining 25 tasks have zero real-scored trials: either every
+  attempt hit the infra failure below, or every attempt ran out the clock and was scored zero by the
+  harness without a real completion.</p>
+  <p class="foot">Source: <code>results_main.csv</code> + <code>results_long.csv</code> pulled fresh
+  from <code>kiem-sandbox:/root/pq/qwen/companybench_batch/</code> at 2026-10-28 18:24 UTC, joined by
+  (task_id, trial) with the 5-hour rerun overriding the 80-minute main run, same rule as
+  <code>_coverage_check.py</code> on the sandbox (re-run live at this pull: 1 of 40 full, unchanged
+  from the prior pull; 4 tasks that had a real trial at the prior pull, T10/T23/T36/T39, have since
+  lost it to a later rerun landing as infra). Real = status "ok" or "timeout" (a completed, judged
+  run); "timed_out_scored_zero" is the harness assigning zero without a full run and is not counted as
+  real; "infra" / "infra_no_result" are launch or environment failures.</p>
+  <div class="grid2">
+    <div class="panel"><h3>4-way split, all 40 tasks</h3>
+      <div class="kpis">
+        <div class="kpi"><b>1</b><span>full real (3/3 trials)</span></div>
+        <div class="kpi"><b>14</b><span>partial real (1 or 2 of 3 trials)</span></div>
+        <div class="kpi"><b>8</b><span>zero-score only (0/3 real, but at least one timed-out-zero)</span></div>
+        <div class="kpi"><b>17</b><span>infra-blocked (0/3 real, no scored trial at all)</span></div>
+      </div>
+    </div>
+    <div class="panel"><h3>Of the 15 tasks with a real trial</h3>
+      <p><b>2 of 15</b> scored full marks (reward 1.00) on their one real trial: T22 and T32. The
+      other 13 scored 0.00 on every real trial they have. This is too small a sample to call a
+      capability finding either way; it is what is scored right now.</p>
+    </div>
+  </div>
+</section>
+
+<section id="deepdive">
+  <div class="eyebrow">The one fully-scored task</div>
+  <h2>T38 &middot; Card decline alert coverage audit &middot; task_id 142637</h2>
+  <p>This is the only task where Qwen 3.8 Max has all 3 trials scored with no infra failure. It scored
+  <b>0.00 on all 3</b>. Every peer model already published for this same task_id solved it at or near
+  full marks, most of them faster.</p>
+  <div class="sbs2">
+    <div><span class="foot">Qwen 3.8 Max</span><b style="color:var(--bad)">0.00 / 0.00 / 0.00</b><span class="foot">63, 185, 129 min</span></div>
+    <div><span class="foot">Gemini 4 Argon</span><b style="color:var(--good)">1.00 / 1.00 / 1.00</b><span class="foot">41, 34, 34 min</span></div>
+    <div><span class="foot">Grok 4.7</span><b style="color:var(--good)">1.00 / 1.00 / 1.00</b><span class="foot">26, 28, 34 min</span></div>
+    <div><span class="foot">Claude Fable 5.1</span><b style="color:var(--good)">1.00 / 1.00 / 0.45</b><span class="foot">22, 28, 30 min</span></div>
+    <div><span class="foot">GPT 6.1 Sol</span><b style="color:var(--good)">1.00 / 1.00 / 1.00</b><span class="foot">12, 19, 18 min</span></div>
+    <div><span class="foot">GPT 6 Astra</span><b style="color:var(--good)">1.00 / 1.00 / 1.00</b><span class="foot">14, 15, 23 min</span></div>
+  </div>
+  <p class="foot">Peer numbers read from the published runs.json embedded in
+  _scratch_gemini_cb/index.html and _scratch_grok_cb/index.html (both already-public sites built on
+  the same alias40.csv task_id mapping). Qwen minutes/rewards from
+  results_main.csv / results_long.csv, jobs 142637_1_main, 142637_2_long5h, 142637_3_long5h.</p>
+  <h3 style="margin-top:1em">What Qwen's trace actually shows</h3>
+  <p class="foot">Values the task's grader treats as expected or reference, emails, URLs, Slack/run
+  ids, and the benchmark corpus's name are masked as [value], [email], [url] and [name]. Everything
+  else is the run as recorded.</p>
+  <details class="tstep"><summary>Trial 1, 80 min budget, step 1 of 79, step 1</summary><p class="tmsg">Analysis: Fresh terminal at /workspace. I need to discover how to talk to the MCP servers (they&#x27;...&#x27;s a client script or if I need to use curl to speak MCP JSON-RPC over HTTP. Plan: 1) List the workspace and home directory contents. 2) Check for python availability and MCP client</p><div class="callrow"><b>bash_command</b> <code>ls -la /workspace</code></div><div class="callrow"><b>bash_command</b> <code>ls -la ~ ; cat ~/.bashrc | tail -20</code></div><div class="callrow"><b>bash_command</b> <code>which python3 curl jq; python3 -c &quot;...&quot; 2&gt;&amp;1 | head -3</code></div><p class="tobs"><b>observed:</b> New Terminal Output: rlgymagent@cabece5633c2:/workspace$ ls -la /workspace total 8 drwxr-xr-x 2 rlgymagent rlgymagent [value] Oct 27 23:38 . drwxr-xr-x 1 root root [value] Oct 27 23:39 .. rlgymagent@cabece5633c2:/workspace$ ls -la ~ ; cat ~/.bashrc | tail -20 </p></details><details class="tstep"><summary>Trial 1, step 2 of 79, step 2</summary><p class="tmsg">Analysis: The workspace is empty, but python3 has the `mcp` package installed, and curl can reach the MCP endpoints (with a trailing-slash redirect). I&#x27;ll build a small Python MCP client helper to list tools and call them. Plan: Write a reusable Python script `/workspace/mcp_cli.</p><div class="callrow"><b>bash_command</b> <code>cat &gt; /workspace/mcp_cli.py &lt;&lt;script&gt;&gt;</code></div><div class="callrow"><b>bash_command</b> <code>tools: db-sql.list ; python3 /workspace/mcp_cli.py [name]-sql-gym list 2&gt;&amp;1 | head -60</code></div><p class="tobs"><b>observed:</b> New Terminal Output: rlgymagent@cabece5633c2:/workspace$ cat &gt; /workspace/mcp_cli.py &lt;&lt; &#x27;...&#x27; &gt; import sys, json, asyncio &gt; from mcp.client.streamable_http import streamablehttp_client &gt; from mcp import ClientSession &gt; &gt; async def main(): &gt; server = sys.argv[1</p></details><details class="tstep"><summary>Trial 1, final step 79 of 79, step 79</summary><p class="tmsg">Analysis: Final state verified. All twelve labelled figures were computed from the real records and are internally reconciling: - declines (card_events.status=&#x27;...&#x27;, external_created_at in [value]) = [value]; on-list = [value]; pairings = [value]; alerts owed (distinct cardholder</p><div class="callrow"><b>mark_task_complete</b> <code></code></div><p class="tobs"><b>observed:</b> New Terminal Output: rlgymagent@cabece5633c2:/workspace$</p></details><details class="tstep"><summary>Trial 2, 5-hour rerun, final step 148 of 148, step 148</summary><p class="tmsg">Analysis: All work is complete and cross-verified. Rule source: Jira PD-68 documents the implemented NOTIFIABLE_DECLINE_REASONS (9 entries: Invalid CVV, Incorrect PIN, AVS Decline, Card Expiration Mismatch, Denied by Card Controls: [name] Reached, Denied By Card Controls: [name],</p><div class="callrow"><b>mark_task_complete</b> <code></code></div><p class="tobs"><b>observed:</b> New Terminal Output: rlgymagent@a26933bfbc32:/workspace$</p></details><details class="tstep"><summary>Trial 3, 5-hour rerun, final step 123 of 123, step 123</summary><p class="tmsg">Analysis: Final state confirmed. All investigation and all four writes are complete and verified: (1) Slack channel card-decline-alert-audit ([value]) created, containing exactly one message (the memo, ts [value]), which was pinned and nothing else; (2) exactly one email sent to </p><div class="callrow"><b>mark_task_complete</b> <code></code></div><p class="tobs"><b>observed:</b> New Terminal Output: rlgymagent@6d2f5059013f:/workspace$</p></details>
+  <p>All 3 trials reached a self-reported "all twelve labelled figures computed and verified" final
+  state and called mark_task_complete. The grader scored all 3 at 0.00 regardless. Nothing in this
+  trace shows the agent being blocked, confused, or stuck; it completed its own checklist and the
+  completion did not match what the task required.</p>
+</section>
+
+<section id="compare">
+  <div class="eyebrow">15-task comparison</div>
+  <h2>Every task where Qwen has at least one real-scored trial, against the same task_id for Gemini
+  4 Argon and Grok 4.7.</h2>
+  <p>Sample size is disclosed per task: most of these are a single real trial (n=1 of 3), not a full
+  k=3 comparison. Missing or infra trials are omitted, not averaged in as zero. The peer columns show
+  all 3 of their published trials for the same task_id for scale, not as a matched-n comparison.</p>
+  <div class="tbl"><table>
+    <tr><th>Task</th><th>Title</th><th>Qwen, real trials only</th><th>Gemini 4 Argon (3 of 3)</th><th>Grok 4.7 (3 of 3)</th></tr>
+    <tr><td class="l">T04</td><td class="l">Person-to-person bill history audit</td><td class="l">n=1 of 3: 0.00</td><td class="l">0.00, 1.00, 1.00</td><td class="l">1.00, 1.00, 1.00</td></tr>
+<tr><td class="l">T08</td><td class="l">In-network ATM fee audit</td><td class="l">n=1 of 3: 0.00</td><td class="l">0.00, 0.00, 1.00</td><td class="l">0.93, 0.93, 0.93</td></tr>
+<tr><td class="l">T09</td><td class="l">First card replacement fee audit</td><td class="l">n=1 of 3: 0.00</td><td class="l">0.00, 0.80, 1.00</td><td class="l">1.00, 1.00, 1.00</td></tr>
+<tr><td class="l">T13</td><td class="l">Declined savings-goal withdrawal investigation</td><td class="l">n=1 of 3: 0.00</td><td class="l">0.00, 0.12, 0.12</td><td class="l">0.12, 0.12, 0.75</td></tr>
+<tr><td class="l">T14</td><td class="l">Failed bill payment diagnosis</td><td class="l">n=1 of 3: 0.00</td><td class="l">0.00, 0.00, 1.00</td><td class="l">0.25, 0.75, 1.00</td></tr>
+<tr><td class="l">T21</td><td class="l">App review prompt timing against onboarding</td><td class="l">n=1 of 3: 0.00</td><td class="l">0.00, 0.00, 0.97</td><td class="l">1.00, 1.00, 1.00</td></tr>
+<tr class="hirow"><td class="l">T22</td><td class="l">Missing due dates on linked bill payees</td><td class="l">n=1 of 3: 1.00</td><td class="l">0.00, 0.00, 1.00</td><td class="l">0.19, 0.19, 0.31</td></tr>
+<tr><td class="l">T24</td><td class="l">Account wind-down check return reconciliation</td><td class="l">n=1 of 3: 0.00</td><td class="l">0.00, 1.00, 1.00</td><td class="l">0.53, 1.00, 1.00</td></tr>
+<tr><td class="l">T27</td><td class="l">Recurring schedule anchor drift audit</td><td class="l">n=1 of 3: 0.00</td><td class="l">0.00, 1.00, 1.00</td><td class="l">0.82, 0.88, 1.00</td></tr>
+<tr><td class="l">T28</td><td class="l">Bank-link failure funding audit</td><td class="l">n=2 of 3: 0.00, 0.00</td><td class="l">0.97, 1.00, 1.00</td><td class="l">0.44, 0.44, 0.72</td></tr>
+<tr><td class="l">T29</td><td class="l">Declined card dispute evidence audit</td><td class="l">n=1 of 3: 0.00</td><td class="l">0.00, 0.72, 0.81</td><td class="l">0.91, 0.91, 1.00</td></tr>
+<tr class="hirow"><td class="l">T32</td><td class="l">Wire fee deduction audit</td><td class="l">n=1 of 3: 1.00</td><td class="l">1.00, 1.00, 1.00</td><td class="l">0.64, 0.86, 0.93</td></tr>
+<tr><td class="l">T33</td><td class="l">Phantom card authorization reconciliation</td><td class="l">n=1 of 3: 0.00</td><td class="l">1.00, 1.00, 1.00</td><td class="l">0.00, 0.00, 0.59</td></tr>
+<tr><td class="l">T37</td><td class="l">First bill execution notification audit</td><td class="l">n=1 of 3: 0.00</td><td class="l">1.00, 1.00, 1.00</td><td class="l">0.00, 0.00, 0.81</td></tr>
+<tr><td class="l">T38</td><td class="l">Card decline alert coverage audit</td><td class="l">n=3 of 3: 0.00, 0.00, 0.00</td><td class="l">1.00, 1.00, 1.00</td><td class="l">1.00, 1.00, 1.00</td></tr>
+  </table></div>
+  <p class="foot">Rows highlighted green are the 2 of 15 where Qwen's one real trial scored full
+  marks (T22, T32). T10, T23, T36 and T39 appeared in an earlier pull of this table and have since
+  dropped out: each lost its only real trial to a later rerun landing as infra. Source:
+  data/coverage.json (this build, 2026-10-28 18:24 UTC pull) joined to runs.json embedded in both
+  peer sites' index.html by alias40.csv's task_id mapping.</p>
+  <p>Averaged across all 18 of Qwen's real trial-runs on these 15 tasks, the mean reward is <b>0.111</b>
+  (2 of 18 at full marks). Gemini 4 Argon's mean across its own full 45 runs (15 tasks x 3) on the
+  identical tasks is <b>0.634</b>; Grok 4.7's is <b>0.710</b>. These are not a matched-effort
+  comparison (Qwen has 1 to 3 real trials per task, the peers have all 3), so read this as the
+  current state, not a capability verdict.</p>
+</section>
+
+<section id="matrix">
+  <div class="eyebrow">Every task</div>
+  <h2>All 40 tasks, all 3 trials, current status.</h2>
+  <div class="legend">
+    <span class="chip chip-ok">ran, scored</span>
+    <span class="chip chip-to">ran, scored (timeout)</span>
+    <span class="chip chip-z">scored zero (timeout)</span>
+    <span class="chip chip-infra">infra failure</span>
+    <span class="chip chip-missing">not attempted</span>
+  </div>
+  <div class="tbl"><table>
+    <tr><th>Alias</th><th>Task ID</th><th>Trial 1 / 2 / 3</th><th>Tier</th></tr>
+    <tr><td class="l">T01</td><td class="l">142476</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T02</td><td class="l">142503</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T03</td><td class="l">142531</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T04</td><td class="l">142538</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T05</td><td class="l">142547</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T06</td><td class="l">142578</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T07</td><td class="l">142587</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-missing" title="not attempted">missing</span></td><td class="l">zero-score only (0/3 real)</td></tr>
+<tr><td class="l">T08</td><td class="l">142589</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T09</td><td class="l">142606</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T10</td><td class="l">142656</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T11</td><td class="l">142674</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-missing" title="not attempted">missing</span></td><td class="l">zero-score only (0/3 real)</td></tr>
+<tr><td class="l">T12</td><td class="l">142679</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-missing" title="not attempted">missing</span><span class="chip chip-missing" title="not attempted">missing</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T13</td><td class="l">151271</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra, no result">infra_no_result</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T14</td><td class="l">151309</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T15</td><td class="l">151316</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra, no result">infra_no_result</span><span class="chip chip-infra" title="infra, no result">infra_no_result</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T16</td><td class="l">151323</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">zero-score only (0/3 real)</td></tr>
+<tr><td class="l">T17</td><td class="l">151325</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span></td><td class="l">zero-score only (0/3 real)</td></tr>
+<tr><td class="l">T18</td><td class="l">151332</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-infra" title="infra, no result">infra_no_result</span></td><td class="l">zero-score only (0/3 real)</td></tr>
+<tr><td class="l">T19</td><td class="l">151340</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra, no result">infra_no_result</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T20</td><td class="l">151352</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-infra" title="infra, no result">infra_no_result</span></td><td class="l">zero-score only (0/3 real)</td></tr>
+<tr><td class="l">T21</td><td class="l">151353</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T22</td><td class="l">151361</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-ok" title="ran, scored">ok</span><span class="chip chip-infra" title="infra, no result">infra_no_result</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T23</td><td class="l">159982</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-missing" title="not attempted">missing</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T24</td><td class="l">159983</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T25</td><td class="l">159999</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-missing" title="not attempted">missing</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T26</td><td class="l">160030</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-missing" title="not attempted">missing</span></td><td class="l">zero-score only (0/3 real)</td></tr>
+<tr><td class="l">T27</td><td class="l">160039</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T28</td><td class="l">160049</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span></td><td class="l">partial real (2/3)</td></tr>
+<tr><td class="l">T29</td><td class="l">160139</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-missing" title="not attempted">missing</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T30</td><td class="l">160173</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T31</td><td class="l">160184</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T32</td><td class="l">142348</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-ok" title="ran, scored">ok</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T33</td><td class="l">142536</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T34</td><td class="l">142553</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T35</td><td class="l">142574</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T36</td><td class="l">142591</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T37</td><td class="l">142607</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-to" title="ran, scored (timeout)">timeout</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">partial real (1/3)</td></tr>
+<tr><td class="l">T38</td><td class="l">142637</td><td><span class="chip chip-ok" title="ran, scored">ok</span><span class="chip chip-ok" title="ran, scored">ok</span><span class="chip chip-ok" title="ran, scored">ok</span></td><td class="l">full real (3/3)</td></tr>
+<tr><td class="l">T39</td><td class="l">142666</td><td><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span><span class="chip chip-infra" title="infra failure">infra</span></td><td class="l">infra-blocked (0/3)</td></tr>
+<tr><td class="l">T40</td><td class="l">151244</td><td><span class="chip chip-z" title="scored zero (timeout)">timed_out_scored_zero</span><span class="chip chip-infra" title="infra, no result">infra_no_result</span><span class="chip chip-infra" title="infra, no result">infra_no_result</span></td><td class="l">zero-score only (0/3 real)</td></tr>
+  </table></div>
+  <p class="foot">Tier counts: 1 full real, 14 partial real, 8 zero-score only, 17 infra-blocked.
+  Source: results_main.csv + results_long.csv, kiem-sandbox:/root/pq/qwen/companybench_batch/,
+  pulled fresh 2026-10-28 18:24 UTC and re-verified against _coverage_check.py's own join rule in the
+  same session this page was built.</p>
+</section>
+
+<section id="infra">
+  <div class="eyebrow">Why most of this run has no result</div>
+  <h2>A Harbor agent-setup bug, not a Qwen finding.</h2>
+  <p>The environment setup step for each trial installs tmux and asciinema. When the apt-get install
+  path doesn't take, the setup script falls back to compiling tmux from source inside the container.
+  That fallback fails, and when it fails the trial never gets a terminal session:</p>
+  <code class="quote">Installing tools using apt-get: ... apt-get install -y tmux asciinema
+Installing tmux from source...
+Failed to install tmux from source
+Installing asciinema via pip...
+asciinema successfully installed using pip
+Trial 142553__fccX2Kg failed: Failed to start tmux session. Error: None
+Collecting main service artifacts
+Not retrying trial because the maximum number of retries has been reached</code>
+  <p class="foot">Quoted verbatim from job.log for job 142553_1_main
+  (kiem-sandbox:/root/pq/qwen/companybench_batch/jobs_main/142553_1_main/job.log). This exact
+  "Installing tmux from source... Failed to install tmux from source" sequence appears in
+  <b>39 of 161</b> logged attempts so far (ssh kiem-sandbox grep -l, this session). The disk-pressure
+  explanation sometimes given for why apt-get falls back to a source build is not independently
+  confirmed: no job log contains "No space left on device" or similar, and the driver's own free-disk
+  reading was 100+ GB free through almost the entire run (one single 0.0GB reading appears at the very
+  start of this driver's ramp-up, not sustained and not correlated with the 71 infra failures spread
+  across the run). Treat the redundant install step as the confirmed mechanism and disk pressure as an
+  unconfirmed hypothesis. Compare: task 142637
+  (T38)'s successful trial installed tmux via apt-get directly with no fallback and no failure.</p>
+  <p>This is an infrastructure limitation in how trials get provisioned, not a measurement of what
+  Qwen 3.8 Max can or can't do on CompanyBench. Tasks that got a working terminal session score like
+  any other run; tasks that didn't never reach the agent at all.</p>
+</section>
+
+<section id="method">
+  <div class="eyebrow">Method</div>
+  <h2>What this page is, and is not.</h2>
+  <div class="grid2">
+    <div class="panel"><h3>Denominators</h3>
+      <ul class="tight">
+        <li>40 tasks, Data OS dataset 1732, same set as Gemini 4 Argon and Grok 4.7.</li>
+        <li>Target k=3 trials per task: 1 at an 80-minute agent budget, a 5-hour rerun for any trial
+        that didn't finish with a scored result in 80 minutes.</li>
+        <li>120 target trials. 18 are real-scored (ok/timeout) as of this build. 161 logged attempts
+        have been recorded in total (both CSVs, includes retries).</li>
+        <li>No cost figures on this page or in this site's data files, by policy; internal cost
+        tracking lives in the internal report, not here.</li>
+      </ul>
+    </div>
+    <div class="panel"><h3>What this does not establish</h3>
+      <ul class="tight">
+        <li>Not a finished benchmark pass: 25 of 40 tasks have zero real-scored trials right now.</li>
+        <li>Not a capability verdict on the 2 full-marks results (T22, T32) or the 13 zero results:
+        each is a single trial, and a single trial is not a rate.</li>
+        <li>Not evidence Qwen is worse at CompanyBench than the peer models shown: the peer runs are
+        complete (120 of 120 scored trials each); this run is 18 of 120. The gap in full-marks rate
+        is as likely to reflect which trials happened to get a working terminal as anything about the
+        model.</li>
+        <li>The T38 side-by-side (page section above) is the one place with equal footing: all 6
+        models have all 3 trials scored on the same task_id. Qwen is the only one at 0.00 there.</li>
+      </ul>
+    </div>
+    <div class="panel"><h3>Run policy</h3>
+      <ul class="tight">
+        <li>Model: Qwen 3.8 Max, OpenRouter qwen/qwen3.8-max-prime, via Harbor terminus-2.</li>
+        <li>reasoning_effort high, internet on, web search off.</li>
+        <li>Long reruns are picked from a fixed priority queue (LONG_RERUN_PRIORITY in
+        run_batch_v9.py), not resampled; a task that reaches k on the 80-minute pass is not rerun.</li>
+      </ul>
+    </div>
+    <div class="panel"><h3>Provenance</h3>
+      <ul class="tight">
+        <li>This page: built 2026-10-28 from a live pull of the sandbox CSVs and job logs, in a new local
+        directory, not yet published.</li>
+        <li>Qwen trace data: masked locally in this build (emails, URLs, the benchmark corpus's name,
+        3+ digit numbers and quoted literals replaced; no task-specific grader values were available
+        to extract for this task, so the masking is the strict fallback, not a per-task targeted
+        one).</li>
+        <li>Peer (Gemini, Grok) numbers: read from their own already-published sites, not re-derived.</li>
+        <li>Task title and category ("Card decline alert coverage audit", "Cards and card controls")
+        and the task prompt text: reused verbatim from the already-published, already-masked
+        prompts40.json used to build the Gemini site, since it is the identical task.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:0">
+  <div class="eyebrow">Live-run note</div>
+  <p>This reflects a run still in progress on kiem-sandbox. A further refresh with more real coverage
+  may follow before 22:30 UTC today. Until then, treat the 15-task and 40-task tables above as the
+  current state, not a final result.</p>
+</section>
+</div>
+</body></html>

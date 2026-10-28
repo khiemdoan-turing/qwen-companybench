@@ -1,0 +1,6 @@
+{
+ "_superseded": true,
+ "_notice": "This 19-task snapshot was built from an earlier data pull. A fresh, final pull at 2026-10-28T18:24Z (same session as the published page) found 4 of those 19 tasks (T10, T23, T36, T39) had since lost their only real trial to a later rerun landing as an infra failure, dropping the comparable set to 15. The current file is data/comparison15.json; index.html reflects the 15-task number. This file is kept for the record, not as a current source.",
+ "n_tasks": 19,
+ "superseded_by": "data/comparison15.json"
+}

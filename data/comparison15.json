@@ -1,0 +1,396 @@
+{
+ "n_tasks": 15,
+ "pulled_utc": "2026-10-28T18:24Z",
+ "rows": [
+  {
+   "alias": "T04",
+   "task_id": "142538",
+   "title": "Person-to-person bill history audit",
+   "cat": "Bill pay",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 3,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    0.0,
+    1.0,
+    1.0
+   ],
+   "grok": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "alias": "T08",
+   "task_id": "142589",
+   "title": "In-network ATM fee audit",
+   "cat": "Fees",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 2,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "grok": [
+    0.9333,
+    0.9333,
+    0.9333
+   ]
+  },
+  {
+   "alias": "T09",
+   "task_id": "142606",
+   "title": "First card replacement fee audit",
+   "cat": "Fees",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 2,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    1.0,
+    0.7955,
+    0.0
+   ],
+   "grok": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "alias": "T13",
+   "task_id": "151271",
+   "title": "Declined savings-goal withdrawal investigation",
+   "cat": "Transfers and payments",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 3,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    0.125,
+    0.0,
+    0.125
+   ],
+   "grok": [
+    0.75,
+    0.125,
+    0.125
+   ]
+  },
+  {
+   "alias": "T14",
+   "task_id": "151309",
+   "title": "Failed bill payment diagnosis",
+   "cat": "Bill pay",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 3,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "grok": [
+    0.75,
+    0.25,
+    1.0
+   ]
+  },
+  {
+   "alias": "T21",
+   "task_id": "151353",
+   "title": "App review prompt timing against onboarding",
+   "cat": "App and automation behaviour",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 3,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    0.0,
+    0.0,
+    0.97
+   ],
+   "grok": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "alias": "T22",
+   "task_id": "151361",
+   "title": "Missing due dates on linked bill payees",
+   "cat": "Bill pay",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 2,
+     "status": "ok",
+     "reward": 1.0
+    }
+   ],
+   "qwen_mean": 1.0,
+   "argon": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "grok": [
+    0.31,
+    0.19,
+    0.19
+   ]
+  },
+  {
+   "alias": "T24",
+   "task_id": "159983",
+   "title": "Account wind-down check return reconciliation",
+   "cat": "Accounts and ownership",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 3,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    1.0,
+    1.0,
+    0.0
+   ],
+   "grok": [
+    1.0,
+    1.0,
+    0.5312
+   ]
+  },
+  {
+   "alias": "T27",
+   "task_id": "160039",
+   "title": "Recurring schedule anchor drift audit",
+   "cat": "Transfers and payments",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 3,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    1.0,
+    1.0,
+    0.0
+   ],
+   "grok": [
+    0.88,
+    1.0,
+    0.82
+   ]
+  },
+  {
+   "alias": "T28",
+   "task_id": "160049",
+   "title": "Bank-link failure funding audit",
+   "cat": "Transfers and payments",
+   "qwen_n": 2,
+   "qwen_real": [
+    {
+     "trial": 2,
+     "status": "timeout",
+     "reward": 0.0
+    },
+    {
+     "trial": 3,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    1.0,
+    0.9688,
+    1.0
+   ],
+   "grok": [
+    0.4375,
+    0.7188,
+    0.4375
+   ]
+  },
+  {
+   "alias": "T29",
+   "task_id": "160139",
+   "title": "Declined card dispute evidence audit",
+   "cat": "Fraud, disputes and risk",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 3,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    0.8125,
+    0.7188,
+    0.0
+   ],
+   "grok": [
+    0.9062,
+    1.0,
+    0.9062
+   ]
+  },
+  {
+   "alias": "T32",
+   "task_id": "142348",
+   "title": "Wire fee deduction audit",
+   "cat": "Fees",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 2,
+     "status": "ok",
+     "reward": 1.0
+    }
+   ],
+   "qwen_mean": 1.0,
+   "argon": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "grok": [
+    0.6429,
+    0.9286,
+    0.8571
+   ]
+  },
+  {
+   "alias": "T33",
+   "task_id": "142536",
+   "title": "Phantom card authorization reconciliation",
+   "cat": "Cards and card controls",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 3,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "grok": [
+    0.0,
+    0.0,
+    0.5862
+   ]
+  },
+  {
+   "alias": "T37",
+   "task_id": "142607",
+   "title": "First bill execution notification audit",
+   "cat": "Bill pay",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 2,
+     "status": "timeout",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "grok": [
+    0.0,
+    0.8125,
+    0.0
+   ]
+  },
+  {
+   "alias": "T38",
+   "task_id": "142637",
+   "title": "Card decline alert coverage audit",
+   "cat": "Cards and card controls",
+   "qwen_n": 3,
+   "qwen_real": [
+    {
+     "trial": 1,
+     "status": "ok",
+     "reward": 0.0
+    },
+    {
+     "trial": 2,
+     "status": "ok",
+     "reward": 0.0
+    },
+    {
+     "trial": 3,
+     "status": "ok",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "grok": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ]
+}

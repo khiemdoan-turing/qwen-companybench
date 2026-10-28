@@ -1,0 +1,1256 @@
+{
+ "summary": {
+  "n_tasks": 40,
+  "full": 1,
+  "partial": 14,
+  "zero_score_only": 8,
+  "infra_blocked": 17,
+  "real_trials": 18,
+  "total_trials_target": 120,
+  "logged_attempts": 161,
+  "pulled_utc": "2026-10-28T18:24Z",
+  "note": "No cost/spend figures in this file by policy (public site); see internal QWEN-REPORT.md for cost."
+ },
+ "tasks": [
+  {
+   "task_id": "142476",
+   "alias": "T01",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 263.36,
+     "steps": 236,
+     "job": "142476_1_long5h_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142476_2_long5h"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 164.54,
+     "steps": 132,
+     "job": "142476_3_long5h_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "142503",
+   "alias": "T02",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 144.87,
+     "steps": 121,
+     "job": "142503_1_long5h"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 176.22,
+     "steps": 127,
+     "job": "142503_2_long5h_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142503_3_long5h"
+    }
+   ]
+  },
+  {
+   "task_id": "142531",
+   "alias": "T03",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 224.19,
+     "steps": 158,
+     "job": "142531_1_long5h"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142531_2_long5h"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 176.38,
+     "steps": 109,
+     "job": "142531_3_long5h_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "142538",
+   "alias": "T04",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142538_1_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 102.98,
+     "steps": 163,
+     "job": "142538_2_long5h_retry2"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 122,
+     "job": "142538_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "142547",
+   "alias": "T05",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142547_1_long5h"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 212.32,
+     "steps": 149,
+     "job": "142547_2_long5h"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 162.8,
+     "steps": 138,
+     "job": "142547_3_long5h"
+    }
+   ]
+  },
+  {
+   "task_id": "142578",
+   "alias": "T06",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 131.79,
+     "steps": 98,
+     "job": "142578_1_long5h"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 131.45,
+     "steps": 101,
+     "job": "142578_2_long5h_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 181.15,
+     "steps": 118,
+     "job": "142578_3_long5h_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "142587",
+   "alias": "T07",
+   "tier": "zero_score_only",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142587_1_main"
+    },
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 70,
+     "job": "142587_2_main"
+    },
+    {
+     "status": "missing"
+    }
+   ]
+  },
+  {
+   "task_id": "142589",
+   "alias": "T08",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 79,
+     "job": "142589_1_main"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 53,
+     "job": "142589_2_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142589_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "142606",
+   "alias": "T09",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 101,
+     "job": "142606_1_main"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 68,
+     "job": "142606_2_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142606_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "142656",
+   "alias": "T10",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 91.7,
+     "steps": 87,
+     "job": "142656_1_long5h_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 105.34,
+     "steps": 89,
+     "job": "142656_2_long5h_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 119.57,
+     "steps": 92,
+     "job": "142656_3_long5h_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "142674",
+   "alias": "T11",
+   "tier": "zero_score_only",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142674_1_main"
+    },
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 148,
+     "job": "142674_2_main"
+    },
+    {
+     "status": "missing"
+    }
+   ]
+  },
+  {
+   "task_id": "142679",
+   "alias": "T12",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142679_1_long5h"
+    },
+    {
+     "status": "missing"
+    },
+    {
+     "status": "missing"
+    }
+   ]
+  },
+  {
+   "task_id": "151271",
+   "alias": "T13",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151271_1_main"
+    },
+    {
+     "status": "infra_no_result",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151271_2_main_retry2"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 105,
+     "job": "151271_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "151309",
+   "alias": "T14",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151309_1_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 64.73,
+     "steps": 75,
+     "job": "151309_2_main_retry2"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 92,
+     "job": "151309_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "151316",
+   "alias": "T15",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 68.2,
+     "steps": 85,
+     "job": "151316_1_main_retry2"
+    },
+    {
+     "status": "infra_no_result",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151316_2_main_retry2"
+    },
+    {
+     "status": "infra_no_result",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151316_3_main_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "151323",
+   "alias": "T16",
+   "tier": "zero_score_only",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 109,
+     "job": "151323_1_main"
+    },
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 80,
+     "job": "151323_2_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151323_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "151325",
+   "alias": "T17",
+   "tier": "zero_score_only",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 66,
+     "job": "151325_1_main"
+    },
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 61,
+     "job": "151325_2_main"
+    },
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 85,
+     "job": "151325_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "151332",
+   "alias": "T18",
+   "tier": "zero_score_only",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 91,
+     "job": "151332_1_main"
+    },
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 64,
+     "job": "151332_2_main"
+    },
+    {
+     "status": "infra_no_result",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151332_3_main_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "151340",
+   "alias": "T19",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 24.05,
+     "steps": 71,
+     "job": "151340_1_main_retry2"
+    },
+    {
+     "status": "infra_no_result",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151340_2_main_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 34.1,
+     "steps": 75,
+     "job": "151340_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "151352",
+   "alias": "T20",
+   "tier": "zero_score_only",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 104,
+     "job": "151352_1_main"
+    },
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 87,
+     "job": "151352_2_main"
+    },
+    {
+     "status": "infra_no_result",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151352_3_main_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "151353",
+   "alias": "T21",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151353_1_main"
+    },
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 72,
+     "job": "151353_2_main"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 66,
+     "job": "151353_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "151361",
+   "alias": "T22",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151361_1_main"
+    },
+    {
+     "status": "ok",
+     "real": true,
+     "reward": 1.0,
+     "minutes": 53.2,
+     "steps": 76,
+     "job": "151361_2_main"
+    },
+    {
+     "status": "infra_no_result",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151361_3_main_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "159982",
+   "alias": "T23",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 177.37,
+     "steps": 189,
+     "job": "159982_1_long5h_retry2"
+    },
+    {
+     "status": "missing"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 196.0,
+     "steps": 282,
+     "job": "159982_3_long5h_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "159983",
+   "alias": "T24",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "159983_1_main"
+    },
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 106,
+     "job": "159983_2_main"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 140,
+     "job": "159983_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "159999",
+   "alias": "T25",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 123.99,
+     "steps": 145,
+     "job": "159999_1_long5h_retry2"
+    },
+    {
+     "status": "missing"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 185.96,
+     "steps": 160,
+     "job": "159999_3_long5h_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "160030",
+   "alias": "T26",
+   "tier": "zero_score_only",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 131,
+     "job": "160030_1_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "160030_2_main"
+    },
+    {
+     "status": "missing"
+    }
+   ]
+  },
+  {
+   "task_id": "160039",
+   "alias": "T27",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 89,
+     "job": "160039_1_main"
+    },
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 101,
+     "job": "160039_2_main"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 71,
+     "job": "160039_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "160049",
+   "alias": "T28",
+   "tier": "partial",
+   "real_trials": 2,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 135,
+     "job": "160049_1_main"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 141,
+     "job": "160049_2_main"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 124,
+     "job": "160049_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "160139",
+   "alias": "T29",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 149,
+     "job": "160139_1_main"
+    },
+    {
+     "status": "missing"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 97,
+     "job": "160139_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "160173",
+   "alias": "T30",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "160173_1_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 65.74,
+     "steps": 77,
+     "job": "160173_2_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "160173_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "160184",
+   "alias": "T31",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 60.3,
+     "steps": 80,
+     "job": "160184_1_main_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 78.33,
+     "steps": 91,
+     "job": "160184_2_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 71.63,
+     "steps": 69,
+     "job": "160184_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "142348",
+   "alias": "T32",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142348_1_long5h"
+    },
+    {
+     "status": "ok",
+     "real": true,
+     "reward": 1.0,
+     "minutes": 152.51,
+     "steps": 123,
+     "job": "142348_2_long5h_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142348_3_long5h"
+    }
+   ]
+  },
+  {
+   "task_id": "142536",
+   "alias": "T33",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142536_1_long5h"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 287.23,
+     "steps": 253,
+     "job": "142536_2_long5h"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 300.0,
+     "steps": 301,
+     "job": "142536_3_long5h_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "142553",
+   "alias": "T34",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142553_1_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 117.27,
+     "steps": 87,
+     "job": "142553_2_long5h"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 112.22,
+     "steps": 94,
+     "job": "142553_3_long5h"
+    }
+   ]
+  },
+  {
+   "task_id": "142574",
+   "alias": "T35",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 125.93,
+     "steps": 109,
+     "job": "142574_1_long5h"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 79.59,
+     "steps": 83,
+     "job": "142574_2_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 97.56,
+     "steps": 101,
+     "job": "142574_3_long5h"
+    }
+   ]
+  },
+  {
+   "task_id": "142591",
+   "alias": "T36",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 140.01,
+     "steps": 143,
+     "job": "142591_1_long5h_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 155.87,
+     "steps": 163,
+     "job": "142591_2_long5h_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 104.3,
+     "steps": 70,
+     "job": "142591_3_long5h_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "142607",
+   "alias": "T37",
+   "tier": "partial",
+   "real_trials": 1,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142607_1_main"
+    },
+    {
+     "status": "timeout",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 80.0,
+     "steps": 98,
+     "job": "142607_2_main"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "142607_3_main"
+    }
+   ]
+  },
+  {
+   "task_id": "142637",
+   "alias": "T38",
+   "tier": "full",
+   "real_trials": 3,
+   "cells": [
+    {
+     "status": "ok",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 63.26,
+     "steps": 79,
+     "job": "142637_1_main"
+    },
+    {
+     "status": "ok",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 185.47,
+     "steps": 148,
+     "job": "142637_2_long5h"
+    },
+    {
+     "status": "ok",
+     "real": true,
+     "reward": 0.0,
+     "minutes": 128.82,
+     "steps": 123,
+     "job": "142637_3_long5h"
+    }
+   ]
+  },
+  {
+   "task_id": "142666",
+   "alias": "T39",
+   "tier": "infra_blocked",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 120.32,
+     "steps": 198,
+     "job": "142666_1_long5h_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 100.94,
+     "steps": 150,
+     "job": "142666_2_long5h_retry2"
+    },
+    {
+     "status": "infra",
+     "real": false,
+     "reward": null,
+     "minutes": 98.24,
+     "steps": 185,
+     "job": "142666_3_long5h_retry2"
+    }
+   ]
+  },
+  {
+   "task_id": "151244",
+   "alias": "T40",
+   "tier": "zero_score_only",
+   "real_trials": 0,
+   "cells": [
+    {
+     "status": "timed_out_scored_zero",
+     "real": false,
+     "reward": 0.0,
+     "minutes": 80.04,
+     "steps": 85,
+     "job": "151244_1_main"
+    },
+    {
+     "status": "infra_no_result",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151244_2_main_retry2"
+    },
+    {
+     "status": "infra_no_result",
+     "real": false,
+     "reward": null,
+     "minutes": null,
+     "steps": null,
+     "job": "151244_3_main_retry2"
+    }
+   ]
+  }
+ ]
+}
