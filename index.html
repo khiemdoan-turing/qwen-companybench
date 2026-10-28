@@ -66,14 +66,15 @@ code.quote{display:block;background:var(--soft);border:1px solid var(--rule);bor
   <div class="eyebrow">Turing CompanyBench &middot; live run, in progress &middot; generated 2026-10-28, 18:24 UTC pull</div>
   <h1>Qwen 3.8 Max on Turing CompanyBench</h1>
   <p class="lede">A Harbor agent-setup bug is blocking most of this run from completing. Of 40 tasks,
-  only <b>1 has all 3 trials scored</b> (no infra failures). This page reports exactly what is scored
-  so far, names the infra cause with its own log line, and will not be read as a finished benchmark
-  pass until more of it completes.</p>
+  only <b>3 have a trial Qwen's agent genuinely finished on its own</b> (not cut off by the 80-minute
+  clock). This page compares only those genuine completions against the same models on the same
+  tasks; a further 12 tasks have a single trial that hit the clock and was scored by default, shown
+  separately for reference and excluded from the comparison.</p>
   <div class="kpis">
-    <div class="kpi"><b>1 of 40</b><span>tasks with all 3 trials real-scored (no infra failure)</span></div>
-    <div class="kpi"><b>15 of 40</b><span>tasks with at least 1 real-scored trial (any n)</span></div>
-    <div class="kpi"><b>18 of 120</b><span>total trials real-scored (ok or timeout, not infra)</span></div>
-    <div class="kpi"><b>161</b><span>logged attempts so far (both CSVs, includes reruns)</span></div>
+    <div class="kpi"><b>3 of 40</b><span>tasks with a genuinely completed Qwen trial (status "ok")</span></div>
+    <div class="kpi"><b>12 of 40</b><span>tasks with only a clock-timeout trial (reference only, not compared)</span></div>
+    <div class="kpi"><b>5</b><span>genuine completions total (2 full marks, 3 at zero on one task)</span></div>
+    <div class="kpi"><b>25 of 40</b><span>tasks with zero real trials of any kind (infra-blocked)</span></div>
   </div>
 </header>
 <nav class="idx" aria-label="Sections">
@@ -146,12 +147,15 @@ code.quote{display:block;background:var(--soft);border:1px solid var(--rule);bor
 </section>
 
 <section id="compare">
-  <div class="eyebrow">15-task comparison</div>
-  <h2>Every task where Qwen has at least one real-scored trial, against the same task_id for Gemini
-  4 Argon and Grok 4.7.</h2>
-  <p>Sample size is disclosed per task: most of these are a single real trial (n=1 of 3), not a full
-  k=3 comparison. Missing or infra trials are omitted, not averaged in as zero. The peer columns show
-  all 3 of their published trials for the same task_id for scale, not as a matched-n comparison.</p>
+  <div class="eyebrow">Genuine completions vs. clock timeouts</div>
+  <h2>Only 3 tasks are a fair comparison. The other 12 below are shown for reference, not compared.</h2>
+  <p><b>T22, T32, and T38 are the only rows where Qwen's agent actually finished its run</b> (status
+  "ok"): T22 and T32 scored full marks, T38 scored zero on all 3 finished trials. The other 12 rows
+  each have exactly one trial that hit the 80-minute clock and was scored by default (status
+  "timeout") -- Qwen's agent did not finish on its own on any of them. Those 12 are listed below for
+  completeness but are not part of the headline comparison: a clock cutoff is not the same evidence
+  as a finished run judged and found wanting. The peer columns show all 3 of their published trials
+  for the same task_id for scale, not as a matched-n comparison.</p>
   <div class="tbl"><table>
     <tr><th>Task</th><th>Title</th><th>Qwen, real trials only</th><th>Gemini 4 Argon (3 of 3)</th><th>Grok 4.7 (3 of 3)</th></tr>
     <tr><td class="l">T04</td><td class="l">Person-to-person bill history audit</td><td class="l">n=1 of 3: 0.00</td><td class="l">0.00, 1.00, 1.00</td><td class="l">1.00, 1.00, 1.00</td></tr>

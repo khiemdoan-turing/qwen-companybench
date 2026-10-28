@@ -1,0 +1,92 @@
+{
+ "n_tasks": 3,
+ "pulled_utc": "2026-10-28T18:24Z",
+ "note": "Only genuinely completed Qwen trials (status=='ok'). Timeout-expiry trials are excluded from this comparison and listed separately.",
+ "rows": [
+  {
+   "alias": "T22",
+   "task_id": "151361",
+   "title": "Missing due dates on linked bill payees",
+   "cat": "Bill pay",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 2,
+     "status": "ok",
+     "reward": 1.0
+    }
+   ],
+   "qwen_mean": 1.0,
+   "argon": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "grok": [
+    0.31,
+    0.19,
+    0.19
+   ]
+  },
+  {
+   "alias": "T32",
+   "task_id": "142348",
+   "title": "Wire fee deduction audit",
+   "cat": "Fees",
+   "qwen_n": 1,
+   "qwen_real": [
+    {
+     "trial": 2,
+     "status": "ok",
+     "reward": 1.0
+    }
+   ],
+   "qwen_mean": 1.0,
+   "argon": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "grok": [
+    0.6429,
+    0.9286,
+    0.8571
+   ]
+  },
+  {
+   "alias": "T38",
+   "task_id": "142637",
+   "title": "Card decline alert coverage audit",
+   "cat": "Cards and card controls",
+   "qwen_n": 3,
+   "qwen_real": [
+    {
+     "trial": 1,
+     "status": "ok",
+     "reward": 0.0
+    },
+    {
+     "trial": 2,
+     "status": "ok",
+     "reward": 0.0
+    },
+    {
+     "trial": 3,
+     "status": "ok",
+     "reward": 0.0
+    }
+   ],
+   "qwen_mean": 0.0,
+   "argon": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "grok": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ]
+}
